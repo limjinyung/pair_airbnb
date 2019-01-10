@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/" => "application#index" # "controller_name#method_name"
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
 end
