@@ -1,0 +1,26 @@
+<h1>Airbnb</h1>
+
+
+<hr>
+<h5>Search:</h5>
+<%= form_with url: home_path do |form| %>
+	<%= form.text_field :states %>
+	<%= form.submit %>
+<% end %>
+<hr>
+
+<button><%= link_to 'Add listing', new_listing_path  %></button>
+
+<div>
+	<% @view_listing.each do |listings| %>
+	<p>Address:</p>
+	<h4><%= listings.address %></h4>
+	<p>Postcode:</p>
+	<h4><%= listings.postcode %></h4>
+	<p>States:</p>
+	<h5><%= listings.states %></h5>
+	<p>Rating:</p>
+	<h4><%= listings.ratings %></h4>
+	<hr>
+	<% end %> 
+</div>

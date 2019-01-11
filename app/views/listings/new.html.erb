@@ -1,0 +1,16 @@
+<h2>Any listing to add?</h2>
+
+<%= form_with model: @listing, local: true do |l| %>
+  <%= l.label :address %>
+  <%= l.text_field :address %>
+  <br>
+  <%= l.label :postcode %>
+  <%= l.text_field :postcode %>
+  <br>
+  <%= l.label :states %>
+  <%= l.text_field :states %>
+  <br>
+  <%= l.label :ratings %>
+  <%= l.number_field :ratings %>
+  <%= l.submit %>
+<% end %>

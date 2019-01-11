@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "application#index"
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -8,14 +9,15 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+resources :listings
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/" => "application#index" # "controller_name#method_name"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  root to: "application#index"
+  get "/home" => "listings#home", as: "home"
 
 end
