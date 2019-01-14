@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
  enum role: [:customer, :moderator, :superadmin]
 
+ mount_uploader :image, ImageUploader
+
  def self.create_with_auth_and_hash(authentication, auth_hash)
    user = self.create!(
      name: auth_hash["info"]["name"],

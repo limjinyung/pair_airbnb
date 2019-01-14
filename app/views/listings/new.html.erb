@@ -12,5 +12,9 @@
   <br>
   <%= l.label :ratings %>
   <%= l.number_field :ratings %>
+
+  <%= l.file_field :images, multiple: true %>
+
+  <br>
   <%= l.submit %>
 <% end %>

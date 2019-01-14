@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-	def home
+	def index
 		@view_listing = Listing.all
   	end
 
@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
 
   		if current_user.customer?
 			flash[:notice] = "Sorry. You are not allowed to perform this action."
-        redirect_to home_path, notice: "Sorry. You do not have the permissino to verify a property."
+        redirect_to root_url, notice: "Sorry. You do not have the permissino to verify a property."
       	end
   	end
 
@@ -18,18 +18,22 @@ class ListingsController < ApplicationController
   		listing.user_id = current_user.id
   		
   		if listing.save 
-  			redirect_to home_path
+  			redirect_to root_url
   		else
   			p 'failed to add listing'
   			redirect_to new_listing_path
   		end
   	end
 
+  	def show
+  		@listing = Listing.find(params[:id])
+  	end
+
 
   	private
 
   	def listing_params
-  		params.require(:listing).permit(:address, :postcode, :states, :ratings)
+  		params.require(:listing).permit(:address, :postcode, :states, :ratings, {images: []})
   	end
 
 end

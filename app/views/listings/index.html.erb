@@ -1,0 +1,27 @@
+<h1>Airbnb</h1>
+
+<hr>
+Signed in as: <%= current_user.email %>
+<%= button_to 'Sign out', sign_out_path, method: :delete %>
+<hr>
+
+<% if current_user.superadmin? %>
+<button><%= link_to 'Add listing', new_listing_path  %></button>
+<% end %>
+
+
+<div>
+	<% @view_listing.each do |listing| %>
+	<p>Address:</p>
+	<h4><%= listing.address %></h4>
+	<p>Postcode:</p>
+	<h4><%= listing.postcode %></h4>
+	<p>States:</p>
+	<h5><%= listing.states %></h5>
+	<p>Rating:</p>
+	<h4><%= listing.ratings %></h4>
+	<%= link_to 'view listing', listing_path(listing) %>
+	<hr>
+	<% end %> 
+</div>
+

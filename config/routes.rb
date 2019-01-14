@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "listings#home"
+  root "listings#index"
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -17,7 +17,5 @@ resources :listings
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
-  get "/home" => "listings#home", as: "home"
 
 end
