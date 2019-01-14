@@ -6,6 +6,11 @@ class ListingsController < ApplicationController
 
   	def new
   		@listing = Listing.new
+
+  		if current_user.customer?
+			flash[:notice] = "Sorry. You are not allowed to perform this action."
+        redirect_to home_path, notice: "Sorry. You do not have the permissino to verify a property."
+      	end
   	end
 
   	def create

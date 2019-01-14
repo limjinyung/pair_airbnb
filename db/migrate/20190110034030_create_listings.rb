@@ -1,7 +1,7 @@
 class CreateListings < ActiveRecord::Migration[5.2]
   def change
     create_table :listings do |t|
-      t.string :uid
+      t.string :user_id
       t.string :address
       t.string :postcode
       t.string :states

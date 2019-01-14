@@ -7,9 +7,12 @@
 	<%= form.text_field :states %>
 	<%= form.submit %>
 <% end %>
+<%= button_to 'Sign out', sign_out_path, method: :delete %>
 <hr>
 
+<% if current_user.superadmin? %>
 <button><%= link_to 'Add listing', new_listing_path  %></button>
+<% end %>
 
 <div>
 	<% @view_listing.each do |listings| %>
