@@ -34,8 +34,13 @@ gem 'faker'
 #installed gem carrierwave
 gem 'carrierwave'
 
-#installed rmagick
-# gem "rmagick"
+#installed aws 
+gem 'carrierwave-aws'
+
+#inatalled mini magick
+gem 'mini_magick'
+
+gem 'aws-sdk-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
