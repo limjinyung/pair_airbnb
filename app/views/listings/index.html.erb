@@ -1,8 +1,13 @@
-<h1>Airbnb</h1>
+<h1 class="header-text">Airbnb</h1>
 
 <hr>
-Signed in as: <%= current_user.email %>
-<%= button_to 'Sign out', sign_out_path, method: :delete %>
+<div class="header-line">
+	Signed in as: <%= current_user.email %>
+
+	<button class="inline-buttons"><%= link_to 'Sign out', sign_out_path, method: :delete %></button>
+	<button class="inline-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
+</div>
+
 <hr>
 
 <% if current_user.superadmin? %>
@@ -20,7 +25,8 @@ Signed in as: <%= current_user.email %>
 	<h5><%= listing.states %></h5>
 	<p>Rating:</p>
 	<h4><%= listing.ratings %></h4>
-	<%= link_to 'view listing', listing_path(listing) %>
+	<%= button_to 'View listing', listing_path(listing), method: :get %>
+	<%= button_to "Make reservation", new_listing_reservation_path(listing.id), method: :get %>
 	<hr>
 	<% end %> 
 </div>

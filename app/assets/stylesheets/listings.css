@@ -1,0 +1,11 @@
+.header-text{
+	color: salmon;
+	text-align: center;
+}
+
+.inline-buttons{
+	background-color: salmon;
+	float: right;
+	padding: 15px 32px;
+}
+

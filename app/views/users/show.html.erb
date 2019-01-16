@@ -1,0 +1,19 @@
+<h1>This is your profile page</h1>
+<hr>
+
+email: <%= current_user.email %>
+
+<h4>Your reservation</h4>
+<h5>Details</h5>
+<% @reservation.each do |show_reservation| %>
+	States:<%= show_reservation.listing.states %>
+	<br>
+	Address:<%= show_reservation.listing.address %>
+	<br>
+	Postcodes:<%= show_reservation.listing.postcode %>
+	<br>
+	Date: <%= show_reservation.month %>
+	<hr>
+<% end %>
+
+<%= button_to 'Main Page', root_path, method: :get %>

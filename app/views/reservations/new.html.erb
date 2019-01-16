@@ -1,0 +1,14 @@
+<h1>Make your reservation here</h1>
+
+<%= form_with model: [@listing, @reservation] do |r| %>
+	<%= r.label :Year %>
+	<%= r.text_field :year %>
+	<br>
+	<%= r.label :Month %>
+	<%= r.text_field :month %>
+	<br>
+	<%= r.label :Day %>
+	<%= r.text_field :day %>
+	<br>
+	<%= r.submit "Instant Book" %>
+<% end %>
