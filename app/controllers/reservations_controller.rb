@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
 		
 		if reservation.save
 			redirect_to root_url
+			ReservationMailer.reservation_email(current_user).deliver_now
 		else
 			p 'failed to add listing'
 			redirect_to root_url

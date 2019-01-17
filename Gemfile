@@ -45,6 +45,9 @@ gem 'aws-sdk-rails'
 #for payment gateway
 gem 'braintree'
 
+#to view email in a new tab instead of opening your mailbox
+gem "letter_opener", :group => :development
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
