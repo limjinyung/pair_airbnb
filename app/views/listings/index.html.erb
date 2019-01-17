@@ -1,18 +1,23 @@
-<h1 class="header-text">Airbnb</h1>
+<header>
+	<img id="airbnb-logo" src="https://img.icons8.com/color/1600/airbnb.png">
+	<h1 class="header-text">Airbnb</h1>
+</header>
+
+
 
 <hr>
-<div class="header-line">
-	Signed in as: <%= current_user.email %>
-
+	<br>
 	<button class="inline-buttons"><%= link_to 'Sign out', sign_out_path, method: :delete %></button>
 	<button class="inline-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
-</div>
-
+	<% if current_user.superadmin? %>
+		<button class ="inline-buttons"><%= link_to 'Add listing', new_listing_path  %></button>
+	<% end %>
+	Signed in as: <%= current_user.email %>
+	<br>
+	<br>
 <hr>
 
-<% if current_user.superadmin? %>
-<button><%= link_to 'Add listing', new_listing_path  %></button>
-<% end %>
+
 
 
 <div>
