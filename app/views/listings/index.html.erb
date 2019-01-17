@@ -6,6 +6,7 @@
 
 
 <hr>
+<div class="view-listing-nav">
 	<br>
 	<button class="inline-buttons"><%= link_to 'Sign out', sign_out_path, method: :delete %></button>
 	<button class="inline-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
@@ -15,12 +16,14 @@
 	Signed in as: <%= current_user.email %>
 	<br>
 	<br>
+</div>
+
 <hr>
 
 
 
 
-<div>
+<div class="view-listing">
 	<% @view_listing.each do |listing| %>
 	<p>Address:</p>
 	<h4><%= listing.address %></h4>

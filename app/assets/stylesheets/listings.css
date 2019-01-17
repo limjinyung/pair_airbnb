@@ -23,3 +23,13 @@ header h1 {
   border-bottom: 10px;
 }
 
+.view-listing{
+  margin-left: 20px;
+  float: left;
+  clear: both;
+}
+
+.view-listing-nav{
+  margin-left: 20px;
+}
+
