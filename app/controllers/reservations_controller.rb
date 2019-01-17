@@ -12,8 +12,9 @@ class ReservationsController < ApplicationController
 		reservation.listing_id = params[:listing_id]
 		
 		if reservation.save
+			ReservationJob.perform_later(current_user)
+			# ReservationMailer.reservation_email(current_user).deliver_now
 			redirect_to root_url
-			ReservationMailer.reservation_email(current_user).deliver_now
 		else
 			p 'failed to add listing'
 			redirect_to root_url
