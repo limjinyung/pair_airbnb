@@ -1,41 +1,50 @@
-<header>
-	<img id="airbnb-logo" src="https://img.icons8.com/color/1600/airbnb.png">
-	<h1 class="header-text">Airbnb</h1>
-</header>
+<head>
+	<header>
+		<img id="airbnb-logo" src="https://img.icons8.com/color/1600/airbnb.png">
+	</header>
+</head>
 
+<body>
+	<div>
+		<br class="shadow-line">
+		<button class="nav-buttons">
+			<%= link_to 'Sign out', sign_out_path, method: :delete %>
+		</button>
+		<button class="nav-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
+		<% if current_user.superadmin? %>
+		<button class ="nav-buttons"><%= link_to 'Add listing', new_listing_path  %></button>
+		<% end %>
+		Hi <%= current_user.first_name %> !
+	</div>
 
 
 <hr>
-<div class="view-listing-nav">
-	<br>
-	<button class="inline-buttons"><%= link_to 'Sign out', sign_out_path, method: :delete %></button>
-	<button class="inline-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
-	<% if current_user.superadmin? %>
-		<button class ="inline-buttons"><%= link_to 'Add listing', new_listing_path  %></button>
-	<% end %>
-	Signed in as: <%= current_user.email %>
-	<br>
-	<br>
-</div>
-
-<hr>
-
-
-
-
-<div class="view-listing">
 	<% @view_listing.each do |listing| %>
-	<p>Address:</p>
-	<h4><%= listing.address %></h4>
-	<p>Postcode:</p>
-	<h4><%= listing.postcode %></h4>
-	<p>States:</p>
-	<h5><%= listing.states %></h5>
-	<p>Rating:</p>
-	<h4><%= listing.ratings %></h4>
-	<%= button_to 'View listing', listing_path(listing), method: :get %>
-	<%= button_to "Make reservation", new_listing_reservation_path(listing.id), method: :get %>
-	<hr>
+	<div class="listing">	
+		<h5 class="listing-block">
+			<%= listing.property_type %>
+		</h5> at
+		<h4 class="listing-block">
+			<%= listing.city %>
+		</h4>
+
+		<br>
+
+		<h5 class="listing-block">RM<%= listing.price %></h5> <p class="listing-block">per person</p>
+
+		<div class="list-buttons">
+			<%= button_to 'View details', listing_path(listing), method: :get, class: "list-button" %>
+			<%= button_to "Make reservation", new_listing_reservation_path(listing.id), method: :get, class: "list-button" %>
+		</div>
+		
+		<hr>
+	</div>
 	<% end %> 
+</br> 
+
+</body>
+
+<div class="flickr_pagination" >
+	<%= will_paginate @view_listing %>
 </div>
 

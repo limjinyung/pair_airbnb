@@ -1,4 +1,8 @@
-<h1>This is your profile page</h1>
+<div class='profile-head'>
+	<h1>Hi <%= current_user.first_name %> !</h1>
+	<%= button_to 'Main Page', root_path, method: :get, class: "main-page-button" %>
+</div>
+
 <hr>
 
 email: <%= current_user.email %>
@@ -16,5 +20,5 @@ email: <%= current_user.email %>
 	<hr>
 <% end %>
 
-<%= button_to 'Main Page', root_path, method: :get %>
+
 <%= link_to "Make Payment", braintree_new_path %>

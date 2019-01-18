@@ -5,10 +5,11 @@ class CreateReservations < ActiveRecord::Migration[5.2]
     	t.string :listing_id
     	t.boolean :check_in
     	t.boolean :check_out
-      t.string :year
-      t.string :month
-      t.string :day
-    	t.integer :total_price
+      t.string :check_in_date
+      t.string :check_out_date
+      t.integer :book_guest_number
+      t.string :memo
+      t.boolean :paid
 
       t.timestamps
     end

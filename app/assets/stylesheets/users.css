@@ -1,0 +1,18 @@
+h1{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.main-page-button{
+	margin-bottom: 10px;
+	background-color: #ff5a5f;
+	color: white;
+	border-radius: 10px;
+	margin-left: 10px;
+	right: 0px;
+}
+
+.profile-head{
+	display: inline-block;
+	position: relative;
+}

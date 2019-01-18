@@ -24,10 +24,10 @@ class ReservationsController < ApplicationController
 	private
 
   	def reservations_params
-  		params.require(:reservation).permit(:year, :month, :date)
+  		params.require(:reservation).permit(:check_in_date, :check_out_date, :book_guest_number, :memo)
   	end
 
 end
 
 
-params = { reservation: {year: 2019, month: "August"}}
+# params = { reservation: {year: 2019, month: "August"}}

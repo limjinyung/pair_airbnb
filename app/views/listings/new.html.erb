@@ -1,17 +1,42 @@
 <h2>Any listing to add?</h2>
 
 <%= form_with model: @listing, local: true do |l| %>
-  <%= l.label :address %>
-  <%= l.text_field :address %>
+  <%= l.label :Country %>
+  <%= l.text_field :country %>
   <br>
-  <%= l.label :postcode %>
+  <%= l.label :State %>
+  <%= l.text_field :state %>
+  <br>
+  <%= l.label :City %>
+  <%= l.text_field :city %>
+  <br>
+  <%= l.label :Postcode %>
   <%= l.text_field :postcode %>
   <br>
-  <%= l.label :states %>
-  <%= l.text_field :states %>
+  <%= l.label :Address %>
+  <%= l.text_field :address %>
   <br>
-  <%= l.label :ratings %>
-  <%= l.number_field :ratings %>
+  <%= l.label :'Property type' %>
+  <%= l.text_field :property_type %>
+  <br>
+  <%= l.label :'Room number' %>
+  <%= l.text_field :room_number %>
+  <br>
+  <%= l.label :'Bed number' %>
+  <%= l.text_field :bed_number %>
+  <br>
+  <%= l.label :'Guest number' %>
+  <%= l.text_field :guest_number %>
+  <br>
+  <%= l.label :Tags %>
+  <%= l.text_field :tags %>
+  <br>
+  <%= l.label :Price %>
+  <%= l.text_field :price %>
+  <br>
+  <%= l.label :Description %>
+  <%= l.text_field :description %>
+  <br>
 
   <%= l.file_field :images, multiple: true %>
 

@@ -1,3 +1,58 @@
+<h2 class="view-head">
+	<%= @listing.property_type %>
+</h2> 
+<h5 class="view-head">at</h5>
+<h3 class="view-head">
+	<%= @listing.city %>
+</h3>
+<br>
+
+<!-- Price -->
+<div class="view-head">
+	<img src="https://image.flaticon.com/icons/svg/134/134547.svg" class="view-img">
+	<h5>RM<%= @listing.price %></h5>
+</div>
+
+<br>
+
+<!-- Location -->
+<div class="view-head">
+	<img src="https://image.flaticon.com/icons/svg/149/149441.svg" class="view-img">
+	<h5><%= @listing.address %>, <%= @listing.postcode %>, <%= @listing.city %>, <%= @listing.state %></h5>
+</div>
+
+<br>
+
+<!-- Owner -->
+<div class="view-head">
+	<img src="https://image.flaticon.com/icons/svg/149/149452.svg" class="view-img">
+	<h5><%= @listing.user.username %> <%= @listing.user.last_name %></h5>
+</div>
+
+<br>
+
+<!-- Number of Room & Number of Bed -->
+<div class="view-head">
+	<img src="https://image.flaticon.com/icons/svg/248/248212.svg" class="view-img">
+	<h5 class="room_and_bed"><%= @listing.room_number %></h5>
+	<img src="https://image.flaticon.com/icons/svg/259/259963.svg" class="view-img">
+	<h5 class="room_and_bed"><%= @listing.bed_number %></h5>
+	<img src="https://image.flaticon.com/icons/svg/149/149447.svg" class="view-img">
+	<h5><%= @listing.guest_number %></h5>
+</div>
+
+<br>
+
+<!-- Description -->
+<div class="view-head">
+	<img src="https://image.flaticon.com/icons/svg/134/134816.svg" class="view-img">
+	<h5><%= @listing.description %></h5>
+</div>
+
+<br>
+
 <% @listing.images.each do |image| %>
-	<%= image_tag(image.url) %> 
+	<%= image_tag(image.url , class: "view-stay-img") %> 
 <% end %>
+
+<%= button_to 'Main Page', root_path, method: :get, class:'main-button list-button' %>

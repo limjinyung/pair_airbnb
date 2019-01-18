@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
 	def index
-		@view_listing = Listing.all
+      @view_listing = Listing.all.paginate(:page => params[:page], :per_page => 15)
   	end
 
   	def new
@@ -27,13 +27,14 @@ class ListingsController < ApplicationController
 
   	def show
   		@listing = Listing.find(params[:id])
+
   	end
 
 
   	private
 
   	def listing_params
-  		params.require(:listing).permit(:address, :postcode, :states, :ratings, {images: []})
+  		params.require(:listing).permit(:country, :state, :city, :postcode, :address, :property_type, :room_number, :bed_number, :guest_number, :tags, :price, :description, {images: []})
   	end
 
 end
