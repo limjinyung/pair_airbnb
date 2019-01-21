@@ -27,14 +27,38 @@ class ListingsController < ApplicationController
 
   	def show
   		@listing = Listing.find(params[:id])
-
   	end
 
+    def search 
+      @search_listing = Listing.new
+    end
+
+
+    def advance_search
+      @view_listing = Listing.search(search_params).paginate(:page => params[:page], :per_page => 15)
+      render "index"
+    end
+
+    def index_search
+      @view_listing = Listing.search_by_city(index_params[:city]).paginate(:page => params[:page], :per_page => 15)
+      render "index"
+      if @view_listing = "" 
+        return root_url, notice: "It's empty"
+      end
+    end
 
   	private
 
   	def listing_params
   		params.require(:listing).permit(:country, :state, :city, :postcode, :address, :property_type, :room_number, :bed_number, :guest_number, :tags, :price, :description, {images: []})
   	end
+
+    def search_params
+      params.require(:listing).permit(:state, :city, :property_type,:bed_number, :room_number)
+    end
+
+    def index_params
+    params.require(:listing).permit(:city) 
+    end
 
 end

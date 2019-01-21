@@ -1,6 +1,8 @@
 <head>
 	<header>
-		<img id="airbnb-logo" src="https://img.icons8.com/color/1600/airbnb.png">
+		<%= link_to root_path do %>
+   			<%= image_tag "https://img.icons8.com/color/1600/airbnb.png", class: "airbnb-logo" %>
+		<% end %>
 	</header>
 </head>
 
@@ -15,10 +17,17 @@
 		<button class ="nav-buttons"><%= link_to 'Add listing', new_listing_path  %></button>
 		<% end %>
 		Hi <%= current_user.first_name %> !
-	</div>
-
+		<button class="nav-buttons"><%= link_to 'Advance search', search_page_path, method: :get %></button>
+ 	</div>
 
 <hr>
+
+ 	<%= form_for "listing", url: index_search_path do |i|  %>
+		<%= i.label "Search by City:", class: 'search-bar' %>
+		<%= i.text_field :city %>
+		<%= i.submit "Search", class: 'search-button' %>
+	<% end %>
+
 	<% @view_listing.each do |listing| %>
 	<div class="listing">	
 		<h5 class="listing-block">

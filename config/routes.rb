@@ -23,6 +23,10 @@ end
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "/profile" => "users#show", as: "profile"
   post 'braintree/checkout'
+  get "/search_page" => "listings#search", as: "search_page"
+  post "/advance_search" => "listings#advance_search", as: "advance_search"
+  post "/index_search" => "listings#index_search", as: "index_search"
+  get "/index_search" => "listings#index"
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

@@ -40,7 +40,7 @@ header img {
   display: inline-flex;
 }
 
-#airbnb-logo{
+.airbnb-logo{
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -69,6 +69,19 @@ header img {
   width: 500px;
   margin-left: 20px;
   margin-top: 20px;
+}
+
+.search-bar{
+  margin-left: 20px;
+}
+
+.search-button{
+  background-color: #ff5a5f;
+  text-decoration: none; 
+  margin-right: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
 }
 
 .flickr_pagination {
