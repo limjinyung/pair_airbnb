@@ -1,0 +1,30 @@
+h1{
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.main-page-button{
+	margin-bottom: 10px;
+	background-color: #ff5a5f;
+	color: white;
+	border-radius: 10px;
+	margin-left: 20px;
+	right: 0px;
+}
+
+.profile-head{
+	display: inline-block;
+}
+
+.profile-details{
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.show-img{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 20px;
+}

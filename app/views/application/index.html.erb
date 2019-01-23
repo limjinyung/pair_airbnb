@@ -1,1 +1,17 @@
-<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+
+<h1>Welcome to Airbnb</h1>
+<img src="https://cdn.iconscout.com/icon/free/png-256/airbnb-1-282216.png" height="150" width="150">
+
+<% if signed_in? %>
+  Signed in as: <%= current_user.email %>
+  <%= button_to 'Sign out', sign_out_path, method: :delete %>
+<% else %>
+  <button><%= link_to 'Sign in', sign_in_path %></button>
+<% end %>
+
+
+
+<p>or</p>
+
+<button><%= link_to "Sign in with Google", "/auth/google_oauth2" %></button>
+

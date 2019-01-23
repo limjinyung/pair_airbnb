@@ -1,0 +1,19 @@
+<h1>Make your reservation here</h1>
+
+<%= form_with model: [@listing, @reservation] do |r| %>
+	<%= r.label :'Check in date' %>
+	<%= r.text_field :check_in_date %>
+	<br>
+	<%= r.label :'Check out date' %>
+	<%= r.text_field :check_out_date %>
+	<br>
+	<%= r.label :'Guest number'%>
+	<%= r.text_field :book_guest_number %>
+	<br>
+	<%= r.label :'Memo to the host'%>
+	<%= r.text_field :memo %>
+	<br>
+	<%= r.submit "Instant Book" %>
+<% end %>
+
+<%= button_to 'Main Page', root_path, method: :get %>

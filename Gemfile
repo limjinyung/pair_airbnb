@@ -28,6 +28,38 @@ gem "omniauth"
 #gem omiauth google oauth2 installed
 gem "omniauth-google-oauth2"
 
+#installed faker gem
+gem 'faker'
+
+#installed gem carrierwave
+gem 'carrierwave'
+
+#installed aws 
+gem 'carrierwave-aws'
+
+#inatalled mini magick
+gem 'mini_magick'
+
+gem 'aws-sdk-rails'
+
+#for payment gateway
+gem 'braintree'
+
+#to view email in a new tab instead of opening your mailbox
+gem "letter_opener", :group => :development
+
+#sidekiq queue the request inserver
+gem "sidekiq"
+
+#for pagination!
+gem 'will_paginate'
+
+#for search
+gem 'pg_search'
+
+#include jquery
+gem 'jquery-rails'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

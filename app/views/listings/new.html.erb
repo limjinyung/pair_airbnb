@@ -1,0 +1,50 @@
+
+<h2 class="add-listing-header">Any listing to add?</h2>
+
+<div class="add-listing-form">
+  <%= form_with model: @listing, local: true do |l| %>
+    <%= l.label :"Country:" %>
+    <%= l.text_field :country ,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :"State:" %>
+    <%= l.text_field :state ,class: "add-listing-bar"%>
+    <br>
+    <%= l.label :"City:" %>
+    <%= l.text_field :city ,class: "add-listing-bar"%>
+    <br>
+    <%= l.label :"Postcode:" %>
+    <%= l.text_field :postcode,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :"Address:" %>
+    <%= l.text_field :address,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :'Property type:' %>
+    <%= l.text_field :property_type,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :'Room number:' %>
+    <%= l.text_field :room_number,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :'Bed number:' %>
+    <%= l.text_field :bed_number,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :'Guest number:' %>
+    <%= l.text_field :guest_number,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :"Tags:" %>
+    <%= l.text_field :tags,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :"Price:" %>
+    <%= l.text_field :price,class: "add-listing-bar" %>
+    <br>
+    <%= l.label :"Description:" %>
+    <%= l.text_field :description ,class: "add-listing-bar"%>
+    <br>
+
+    <%= l.file_field :images, multiple: true %>
+
+    <br>
+    <%= l.submit class: "search-button" %>
+  <% end %>
+
+  <%= button_to 'Main Page', root_path, method: :get, class:'main-button list-button' %>
+</div>
