@@ -1,58 +1,53 @@
-<head>
-	<header>
-		<%= link_to root_path do %>
-   			<%= image_tag "https://img.icons8.com/color/1600/airbnb.png", class: "airbnb-logo" %>
-		<% end %>
-	</header>
-</head>
-
-<body>
-	<div>
-		<br class="shadow-line">
-		<button class="nav-buttons">
-			<%= link_to 'Sign out', sign_out_path, method: :delete %>
-		</button>
-		<button class="nav-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
-		<% if current_user.superadmin? %>
+<header>
+	<%= link_to root_path do %>
+			<%= image_tag "https://img.icons8.com/color/1600/airbnb.png", class: "airbnb-logo" %>
+	<% end %>
+</header>
+<div>
+	<br class="shadow-line">
+	<button class="nav-buttons">
+		<%= button_to 'Sign out', sign_out_path, method: :delete, id: "sign-out-button" %>
+	</button>
+	<button class="nav-buttons"><%= link_to 'Profile', profile_path, method: :get %></button>
+	<% if current_user.superadmin? %>
 		<button class ="nav-buttons"><%= link_to 'Add listing', new_listing_path  %></button>
-		<% end %>
-		Hi <%= current_user.first_name %> !
-		<button class="nav-buttons"><%= link_to 'Advance search', search_page_path, method: :get %></button>
- 	</div>
+	<% end %>
+	Hi <%= current_user.first_name %> !
+	<button class="nav-buttons"><%= link_to 'Advance search', search_page_path, method: :get %></button>
+</div>
 
 <hr>
 
- 	<%= form_for "listing", url: index_search_path, html: { id: "auto_search" } do |i| %>
-		<%= i.label "Search by City:", class: 'search-bar' %>
-		<%= i.text_field :city, :autocomplete => :off, id: "search-field" , list: "list" %>
-		<datalist id="list"></datalist>
-		<%= i.submit "Search", class: 'search-button' %>
-	<% end %>
+<%= form_for "listing", url: index_search_path, html: { id: "auto_search" } do |i| %>
+	<%= i.label "Search by City:", class: 'search-bar' %>
+	<%= i.text_field :city, :autocomplete => :off, id: "search-field" , list: "list" %>
+	<datalist id="list"></datalist>
+	<%= i.submit "Search", class: 'search-button' %>
+<% end %>
 
-	<% @view_listing.each do |listing| %>
-	<div class="listing">	
-		<h5 class="listing-block">
-			<%= listing.property_type %>
-		</h5> at
-		<h4 class="listing-block">
-			<%= listing.city %>
-		</h4>
+<% @view_listing.each do |listing| %>
+<div class="listing">	
+	<h5 class="listing-block">
+		<%= listing.property_type %>
+	</h5> at
+	<h4 class="listing-block">
+		<%= listing.city %>
+	</h4>
 
-		<br>
+	<br>
 
-		<h5 class="listing-block">RM<%= listing.price %></h5> <p class="listing-block">per person</p>
+	<h5 class="listing-block">RM<%= listing.price %></h5> <p class="listing-block">per person</p>
 
-		<div class="list-buttons">
-			<%= button_to 'View details', listing_path(listing), method: :get, class: "list-button" %>
-			<%= button_to "Make reservation", new_listing_reservation_path(listing.id), method: :get, class: "list-button" %>
-		</div>
-		
-		<hr>
+	<div class="list-buttons">
+		<%= button_to 'View details', listing_path(listing), method: :get, class: "list-button" %>
+		<%= button_to "Make reservation", new_listing_reservation_path(listing.id), method: :get, class: "list-button" %>
 	</div>
-	<% end %> 
+	
+	<hr>
+</div>
+<% end %> 
 </br> 
 
-</body>
 
 <div class="flickr_pagination" >
 	<%= will_paginate @view_listing %>

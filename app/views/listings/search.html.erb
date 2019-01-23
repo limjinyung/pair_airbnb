@@ -1,23 +1,25 @@
 <h1>Advance search</h1>
 
-<%= form_for @search_listing, url: advance_search_path do |f| %>
-	<%= f.label "State: " %>
-	<%= f.text_field :state %>
-	<br>
-	<%= f.label "City: " %>
-	<%= f.text_field :city %>
-	<br>
-	<%= f.label "Property type" %>
-	<%= f.select :property_type, [['House', 'House'],['Entire floor', 'Entire floor'], ['Townhouse', 'Townhouse'], ['Condominium', 'Condominium'], ['Villa', 'Villa'], ['Castle', 'Castle'], ['Treehouse', 'Treehouse']] %>
-	<br>
-	<%= f.label "Bed number" %>
-	<%= f.select :bed_number, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6']] %>
-	<br>
-		<%= f.label "Room number" %>
-	<%= f.select :room_number, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6']] %>
-	<br>
-	<%= f.submit 'Search' %>
-<% end %>
+<div class="add-listing-form">
+	<%= form_for @search_listing, url: advance_search_path do |f| %>
+		<%= f.label "State: " %>
+		<%= f.text_field :state %>
+		<br>
+		<%= f.label "City: " %>
+		<%= f.text_field :city %>
+		<br>
+		<%= f.label "Property type" %>
+		<%= f.select :property_type, [['House', 'House'],['Entire floor', 'Entire floor'], ['Townhouse', 'Townhouse'], ['Condominium', 'Condominium'], ['Villa', 'Villa'], ['Castle', 'Castle'], ['Treehouse', 'Treehouse']] %>
+		<br>
+		<%= f.label "Bed number" %>
+		<%= f.select :bed_number, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6']] %>
+		<br>
+			<%= f.label "Room number" %>
+		<%= f.select :room_number, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6']] %>
+		<br>
+		<%= f.submit 'Search' ,class: "search-button" %>
+	<% end %>
+</div>
 
 <%= button_to 'Main Page', root_path, method: :get, class:'main-button list-button' %>
 
