@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-	def index
+	def index 
       @view_listing = Listing.all.paginate(:page => params[:page], :per_page => 15)
   	end
 
