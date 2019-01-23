@@ -47,6 +47,14 @@ class ListingsController < ApplicationController
       end
     end
 
+    def auto_search
+      @cities = Listing.search_city(params[:city])
+      respond_to do |format|
+        format.json { render json: @cities }
+        format.js
+      end
+    end
+
   	private
 
   	def listing_params

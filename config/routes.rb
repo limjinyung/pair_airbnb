@@ -27,6 +27,7 @@ end
   post "/advance_search" => "listings#advance_search", as: "advance_search"
   post "/index_search" => "listings#index_search", as: "index_search"
   get "/index_search" => "listings#index"
+  post '/search', to: 'listings#auto_search'
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

@@ -22,9 +22,10 @@
 
 <hr>
 
- 	<%= form_for "listing", url: index_search_path do |i|  %>
+ 	<%= form_for "listing", url: index_search_path, html: { id: "auto_search" } do |i| %>
 		<%= i.label "Search by City:", class: 'search-bar' %>
-		<%= i.text_field :city %>
+		<%= i.text_field :city, :autocomplete => :off, id: "search-field" , list: "list" %>
+		<datalist id="list"></datalist>
 		<%= i.submit "Search", class: 'search-button' %>
 	<% end %>
 

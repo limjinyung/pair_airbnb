@@ -21,4 +21,10 @@ class Listing < ApplicationRecord
 		end
 	end
 
+	def self.search_city(query)
+		where("city ILIKE :city", city: "%#{query}%").map do |record|
+      		record.city 
+  		end
+	end
+
 end

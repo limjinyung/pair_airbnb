@@ -3,22 +3,22 @@
 	<%= button_to 'Main Page', root_path, method: :get, class: "main-page-button" %>
 </div>
 
-<hr>
-
-email: <%= current_user.email %>
-
-<h4>Your reservation</h4>
-<h5>Details</h5>
-<% @reservation.each do |show_reservation| %>
-	States:<%= show_reservation.listing.state %>
+<div class="profile-details">
+	<h4>Your reservation:</h4>
 	<br>
-	Address:<%= show_reservation.listing.address %>
-	<br>
-	Postcodes:<%= show_reservation.listing.postcode %>
-	<br>
-	Date: <%= show_reservation.check_in_date %>
-	<hr>
-<% end %>
+	<% @reservation.each do |show_reservation| %>
+		<img src="https://image.flaticon.com/icons/svg/149/149064.svg", class="show-img">
+		Address: <strong><%= show_reservation.listing.address %>, <%= show_reservation.listing.postcode %>, <%= show_reservation.listing.city %>, <%= show_reservation.listing.state %></strong>
+		<br>
+		Check In: <strong><%= show_reservation.check_in_date %></strong>
+		<br>
+		Check Out: <strong><%= show_reservation.check_out_date %></strong>
+		<br>
+		Memo: <strong><%= show_reservation.memo %></strong>
+		<hr>
+	<% end %>
+</div>
 
 
-<%= link_to "Make Payment", braintree_new_path %>
+
+<%= button_to "Make Payment", braintree_new_path, method: :get, class: "main-page-button" %>
